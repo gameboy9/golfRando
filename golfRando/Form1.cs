@@ -130,7 +130,7 @@ namespace golfRando
 
             string flags = "";
             int number = (chkHoleLocations.Checked ? 1 : 0) + (chkObstacles.Checked ? 2 : 0) + (chkTeeBoxes.Checked ? 4 : 0) +
-                (chkClubs.Checked ? 8 : 0);
+                (chkClubs.Checked ? 8 : 0) + (chkSpeedHacks.Checked ? 16 : 0);
             flags += convertIntToChar(number);
 
             txtFlags.Text = flags;
@@ -146,6 +146,7 @@ namespace golfRando
             chkObstacles.Checked = (number % 4 >= 2);
             chkTeeBoxes.Checked = (number % 8 >= 4);
             chkClubs.Checked = (number % 16 >= 8);
+            chkSpeedHacks.Checked = (number % 32 >= 16);
             loading = false;
         }
 
@@ -185,6 +186,7 @@ namespace golfRando
                 if (chkObstacles.Checked) randomizeObstacles(r1);
                 if (chkTeeBoxes.Checked) randomizeTeeBoxes(r1);
                 if (chkClubs.Checked) randomizeClubs(r1);
+                if (chkSpeedHacks.Checked) speedHacks();
                 saveRom();
             }
             catch (Exception ex)
@@ -277,6 +279,11 @@ namespace golfRando
             double section = (double)r1.Next() / int.MaxValue;
             int points = (int)Math.Round(max - Math.Pow(section * p_range, powToUse));
             return points;
+        }
+
+        private void speedHacks()
+        {
+            romData[0x0919] = romData[0x3f2f] = romData[0x3f22] = 0x01;
         }
     }
 }

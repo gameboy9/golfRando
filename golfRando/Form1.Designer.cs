@@ -50,6 +50,7 @@
             this.chkClubs = new System.Windows.Forms.CheckBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cmdRandomize = new System.Windows.Forms.Button();
+            this.chkSpeedHacks = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblFlags
@@ -252,11 +253,23 @@
             this.cmdRandomize.UseVisualStyleBackColor = true;
             this.cmdRandomize.Click += new System.EventHandler(this.cmdRandomize_Click);
             // 
+            // chkSpeedHacks
+            // 
+            this.chkSpeedHacks.AutoSize = true;
+            this.chkSpeedHacks.Location = new System.Drawing.Point(15, 242);
+            this.chkSpeedHacks.Name = "chkSpeedHacks";
+            this.chkSpeedHacks.Size = new System.Drawing.Size(91, 17);
+            this.chkSpeedHacks.TabIndex = 132;
+            this.chkSpeedHacks.Text = "Speed Hacks";
+            this.chkSpeedHacks.UseVisualStyleBackColor = true;
+            this.chkSpeedHacks.CheckedChanged += new System.EventHandler(this.determineFlags);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 359);
+            this.Controls.Add(this.chkSpeedHacks);
             this.Controls.Add(this.cmdRandomize);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.chkClubs);
@@ -312,6 +325,7 @@
         private System.Windows.Forms.CheckBox chkClubs;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button cmdRandomize;
+        private System.Windows.Forms.CheckBox chkSpeedHacks;
     }
 }
 
